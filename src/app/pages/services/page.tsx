@@ -1,3 +1,4 @@
+"use client"
 // pages/services.tsx
 import React from 'react';
 import Layout from '@/app/components/Layout';

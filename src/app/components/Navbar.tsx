@@ -27,9 +27,9 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
-          <Link href="/company" className="hover:text-blue-400 transition-colors">Company</Link>
-          <Link href="/services" className="hover:text-blue-400 transition-colors">Services</Link>
-          <Link href="/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
+          <Link href="/pages/company" className="hover:text-blue-400 transition-colors">Company</Link>
+          <Link href="/pages/services" className="hover:text-blue-400 transition-colors">Services</Link>
+          <Link href="/pages/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -59,9 +59,9 @@ const Navbar: React.FC = () => {
           >
            
             <Link href="/" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/company" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Company</Link>
-            <Link href="/services" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
-            <Link href="/contact" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
+            <Link href="/pages/company" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Company</Link>
+            <Link href="/pages/services" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
+            <Link href="/pages/contact" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>
