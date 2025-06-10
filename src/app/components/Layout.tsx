@@ -1,6 +1,7 @@
 // components/Layout.tsx
 import React, { ReactNode } from 'react'; // Import ReactNode for children prop
 import Navbar from '@/app/components/Navbar';
+import Footer from './Footer';
 
 
 // Define the type for the props of Layout component
@@ -15,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="container mx-auto px-4 py-8">
         {children}
       </main>
+      <Footer /> 
     </div>
   );
 };
