@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false); // Specify boolean type for useState
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const menuVariants = {
     hidden: { x: "100%" },
@@ -34,10 +34,10 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Hamburger Icon */}
         <div className="md:hidden">
-          {/* Specify event type for onClick handler */}
           <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               {isOpen ? (
+                // This will be handled by the close button inside the overlay
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -55,13 +55,22 @@ const Navbar: React.FC = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-y-0 right-0 w-64 bg-gray-800 z-50 p-4 shadow-xl flex flex-col items-start pt-20 space-y-6"
+            className="fixed inset-y-0 right-0 w-64 bg-gray-900 z-50 p-4 shadow-xl flex flex-col items-start pt-6 space-y-6" // Adjusted padding and background
           >
-           
-            <Link href="/" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/pages/company" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Company</Link>
-            <Link href="/pages/services" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
-            <Link href="/pages/contact" className="text-xl hover:text-blue-400 transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
+            {/* Close Button for Mobile Menu */}
+            <div className="w-full flex justify-end mb-4"> {/* Added margin-bottom */}
+              <button onClick={() => setIsOpen(false)} className="text-white focus:outline-none p-2 rounded-full hover:bg-gray-700 transition-colors">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Mobile Navigation Links */}
+            <Link href="/" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link href="/pages/company" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Company</Link>
+            <Link href="/pages/services" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Services</Link>
+            <Link href="/pages/contact" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>
