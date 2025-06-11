@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <section
         className="relative text-center py-16 sm:py-20 rounded-md overflow-hidden min-h-[calc(100vh-theme(spacing.16))] sm:min-h-[calc(100vh-theme(spacing.20))]" // Added 'relative', 'rounded-md', 'overflow-hidden'
         style={{
-          backgroundImage: `url(/oem-parts/oe-3M.jpg)`, // <--- **YOUR LANDING PAGE IMAGE HERE**
+          backgroundImage: `url(/base-distilled-oil/b-2.jpg)`, // <--- **YOUR LANDING PAGE IMAGE HERE**
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
