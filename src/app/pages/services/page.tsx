@@ -74,9 +74,16 @@ const Services: React.FC = () => {
             <p className="text-base sm:text-lg text-gray-400 mb-4 sm:mb-6">
               Procuring various grades of base and distilled oils and establishing contracts with major OMCs, dealers, and direct supply to transporters.
             </p>
-            <span className="text-blue-400 hover:text-blue-300 font-semibold text-base sm:text-lg">Learn More &rarr;</span>
+            <span className="text-blue-400 hover:text-blue-300 font-semibold text-base sm:text-lg">Learn More &rarr;</span>             
           </motion.div>
         </Link>
+         <motion.div
+            variants={cardVariants}
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 15px rgba(0,0,0,0.2)" }}
+            className="block bg-gray-800 p-6 sm:p-8 rounded-lg shadow-xl text-center cursor-pointer transform transition-transform duration-200"
+          >
+        <Link href="/pages/supply-chain" className="hover:text-blue-400 transition-colors mx-auto">See our Demo-Dashboard</Link>
+        </motion.div>
       </motion.section>
     </Layout>
   );

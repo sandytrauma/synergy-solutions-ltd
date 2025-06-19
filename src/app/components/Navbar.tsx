@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-blue-400">
-          XYZ Solutions Ltd.
+          SPOT Synergy Solutions Pvt. Ltd.
         </Link>
 
         {/* Desktop Menu */}
@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
           <Link href="/pages/company" className="hover:text-blue-400 transition-colors">Company</Link>
           <Link href="/pages/services" className="hover:text-blue-400 transition-colors">Services</Link>
           <Link href="/pages/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
+           
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -71,6 +72,7 @@ const Navbar: React.FC = () => {
             <Link href="/pages/company" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Company</Link>
             <Link href="/pages/services" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Services</Link>
             <Link href="/pages/contact" className="text-xl hover:text-blue-400 transition-colors w-full p-2 rounded-lg hover:bg-gray-800" onClick={() => setIsOpen(false)}>Contact</Link>
+            
           </motion.div>
         )}
       </AnimatePresence>

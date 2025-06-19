@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Synergy Solutions ",
+  title: "SPOT Synergy Solutions Pvt. Ltd.",
   description: "Manufacturing , Logistics , supply chain for OEM parts and procurement of base & distilled oil  ",
 };
 

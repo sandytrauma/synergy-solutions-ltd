@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you would typically send this data to an API
+  
     alert('Thank you for your message! We will get back to you shortly.');
     setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
   };
@@ -32,8 +32,7 @@ const Contact: React.FC = () => {
   const inputVariants = {
     rest: { scale: 1 },
     hover: { scale: 1.01 },
-    // Using Tailwind's ring classes for focus states directly on input for better browser compatibility
-    // and maintaining the animation via Framer Motion for `scale`.
+   
   };
 
   return (
@@ -127,8 +126,8 @@ const Contact: React.FC = () => {
           </form>
 
           <div className="text-center mt-8 sm:mt-12 text-gray-300 text-sm sm:text-base"> {/* Responsive margin and font size */}
-            <p className="mb-2"><strong>Email:</strong> info@xyzsolutions.com</p>
-            <p className="mb-2"><strong>Phone:</strong> +91 11 1234 5678 (example)</p>
+            <p className="mb-2"><strong>Email:</strong> info@spotsolutions.com</p>
+            <p className="mb-2"><strong>Phone:</strong> +91 9315371613</p>
             <p><strong>Address:</strong> [Office Address], New Delhi, Delhi NCR, India</p>
           </div>
         </div>

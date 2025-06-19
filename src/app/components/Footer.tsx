@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
         {/* Company Info */}
         <div>
-          <h3 className="text-xl font-bold text-blue-400 mb-4">XYZ Solutions Ltd.</h3>
+          <h3 className="text-xl font-bold text-blue-400 mb-4">SPOT Synergy Solutions Pvt. Ltd.</h3>
           <p className="text-sm leading-relaxed">
             Revolutionizing India's transport and automotive sectors with integrated solutions, from parts marketing and manufacturing to essential oil trading.
           </p>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-8">
-        &copy; {currentYear} XYZ Solutions Ltd. All rights reserved.
+        &copy; {currentYear} SPOT Synergy Solutions Pvt. Ltd. All rights reserved.
       </div>
     </motion.footer>
   );
