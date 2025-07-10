@@ -40,7 +40,7 @@ const supply_chain_dashboard = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'dashboard' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -52,7 +52,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain/inventory"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'inventory' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -64,7 +64,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain/orders"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'orders' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -76,7 +76,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain/shipments"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'shipments' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -88,7 +88,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li className="pt-4 border-t border-gray-700 mt-4">
               <a
-                href="#"
+                href="/pages/supply-chain/reports"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'reports' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -100,7 +100,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain/suppliers"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'suppliers' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -112,7 +112,7 @@ const supply_chain_dashboard = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/pages/supply-chain/customers"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'customers' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
@@ -126,7 +126,7 @@ const supply_chain_dashboard = () => {
         </nav>
         <div className="mt-auto">
           <a
-            href="#"
+            href="/pages/supply-chain/settings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
               activeMenuItem === 'settings' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
             }`}
