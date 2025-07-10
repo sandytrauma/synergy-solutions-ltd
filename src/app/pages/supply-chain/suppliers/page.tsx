@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, Boxes, ShoppingCart, Send, TrendingUp, Users, Settings, Factory, Phone, Mail, Globe } from 'lucide-react';
+import { Home, Boxes, ShoppingCart, Send, TrendingUp, Users, Settings, Factory, Phone, Mail, Globe, ChevronLeft, ChevronRight } from 'lucide-react'; // Added ChevronLeft, ChevronRight
 
 // Data Interface (local to this page)
 interface Supplier {
@@ -18,6 +18,7 @@ interface Supplier {
 
 const SuppliersPage: React.FC = () => {
   const [activeMenuItem, setActiveMenuItem] = useState<string>('suppliers');
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false); // State for sidebar collapse
 
   // Dummy data for demonstration (local to this page)
   const supplierList: Supplier[] = [
@@ -30,12 +31,28 @@ const SuppliersPage: React.FC = () => {
 
   return (
     <div className="flex h-screen bg-gray-100 font-sans">
-      {/* Sidebar - Duplicated for each page as per request */}
-      <aside className="w-64 bg-gray-800 text-white flex flex-col p-4 shadow-lg rounded-r-xl">
-        <div className="text-2xl font-bold mb-8 text-indigo-300">
+      {/* Sidebar */}
+      <aside className={`bg-gray-800 text-white flex flex-col p-4 shadow-lg rounded-r-xl transition-all duration-300 ease-in-out ${
+          isSidebarCollapsed ? 'w-20 items-center' : 'w-64' // Conditional width and alignment
+        }`}>
+        <div className="flex justify-end w-full mb-4">
+          <button
+            onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+            className="p-2 rounded-full hover:bg-gray-700 text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            {isSidebarCollapsed ? <ChevronRight className="h-6 w-6" /> : <ChevronLeft className="h-6 w-6" />}
+          </button>
+        </div>
+
+        <div
+          className={`text-2xl font-bold mb-8 text-indigo-300 ${
+            isSidebarCollapsed ? 'hidden' : 'block' // Hide text when collapsed
+          }`}
+        >
           <Link href="/pages/supply-chain" className="hover:text-blue-400 transition-colors">SPOT Synergy Solutions</Link>
         </div>
-        <nav>
+        <nav className="flex-1"> {/* Added flex-1 to push settings to bottom */}
           <ul className="space-y-2">
             <li>
               <Link
@@ -45,8 +62,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('dashboard')}
               >
-                <Home className="mr-3 h-5 w-5" />
-                Dashboard
+                <Home className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} /> {/* Adjusted icon margin */}
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Dashboard</span> {/* Hide text when collapsed */}
               </Link>
             </li>
             <li>
@@ -57,8 +74,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('inventory')}
               >
-                <Boxes className="mr-3 h-5 w-5" />
-                Inventory
+                <Boxes className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Inventory</span>
               </Link>
             </li>
             <li>
@@ -69,8 +86,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('orders')}
               >
-                <ShoppingCart className="mr-3 h-5 w-5" />
-                Orders
+                <ShoppingCart className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Orders</span>
               </Link>
             </li>
             <li>
@@ -81,11 +98,11 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('shipments')}
               >
-                <Send className="mr-3 h-5 w-5" />
-                Shipments
+                <Send className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Shipments</span>
               </Link>
             </li>
-            <li className="pt-4 border-t border-gray-700 mt-4">
+            <li className={`pt-4 border-t border-gray-700 ${isSidebarCollapsed ? 'mt-4' : 'mt-4'}`}>
               <Link
                 href="/pages/supply-chain/reports"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
@@ -93,8 +110,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('reports')}
               >
-                <TrendingUp className="mr-3 h-5 w-5" />
-                Reports
+                <TrendingUp className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Reports</span>
               </Link>
             </li>
             <li>
@@ -105,8 +122,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('suppliers')}
               >
-                <Factory className="mr-3 h-5 w-5" />
-                Suppliers
+                <Factory className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Suppliers</span>
               </Link>
             </li>
             <li>
@@ -117,8 +134,8 @@ const SuppliersPage: React.FC = () => {
                 }`}
                 onClick={() => setActiveMenuItem('customers')}
               >
-                <Users className="mr-3 h-5 w-5" />
-                Customers
+                <Users className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Customers</span>
               </Link>
             </li>
           </ul>
@@ -131,8 +148,8 @@ const SuppliersPage: React.FC = () => {
             }`}
             onClick={() => setActiveMenuItem('settings')}
           >
-            <Settings className="mr-3 h-5 w-5" />
-            Settings
+            <Settings className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+            <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Settings</span>
           </Link>
         </div>
       </aside>

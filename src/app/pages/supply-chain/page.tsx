@@ -1,13 +1,16 @@
-"use client"
+// src/app/supply-chain/page.tsx
+"use client";
 
 import React, { useState } from 'react';
-import { Package, Truck, ClipboardList, TrendingUp, Users, Settings, Home, CircleDollarSign, Factory, Boxes, ShoppingCart, Send } from 'lucide-react';
+import { Package, Truck, ClipboardList, TrendingUp, Users, Settings, Home, Factory, Boxes, ShoppingCart, Send, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 // Main App Component
-const supply_chain_dashboard = () => {
+const SupplyChainDashboard: React.FC = () => {
   // State for active menu item (for future navigation functionality)
-  const [activeMenuItem, setActiveMenuItem] = useState('dashboard');
+  const [activeMenuItem, setActiveMenuItem] = useState<string>('dashboard');
+  // State for sidebar collapse
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
 
   // Dummy data for demonstration
   const inventoryData = [
@@ -32,109 +35,127 @@ const supply_chain_dashboard = () => {
   return (
     <div className="flex h-screen bg-gray-100 font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white flex flex-col p-4 shadow-lg rounded-r-xl">
-        <div className="text-2xl font-bold mb-8 text-indigo-300">
-          <Link href="/" className="hover:text-blue-400 transition-colors">SPOT Synergy Solutions</Link>
+      <aside
+        className={`bg-gray-800 text-white flex flex-col p-4 shadow-lg rounded-r-xl transition-all duration-300 ease-in-out ${
+          isSidebarCollapsed ? 'w-20 items-center' : 'w-64'
+        }`}
+      >
+        <div className="flex justify-end w-full mb-4">
+          <button
+            onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+            className="p-2 rounded-full hover:bg-gray-700 text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            {isSidebarCollapsed ? <ChevronRight className="h-6 w-6" /> : <ChevronLeft className="h-6 w-6" />}
+          </button>
         </div>
-        <nav>
+
+        <div
+          className={`text-2xl font-bold mb-8 text-indigo-300 ${
+            isSidebarCollapsed ? 'hidden' : 'block'
+          }`}
+        >
+          <Link href="/pages/supply-chain" className="hover:text-blue-400 transition-colors">SPOT Synergy Solutions</Link>
+        </div>
+        <nav className="flex-1">
           <ul className="space-y-2">
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'dashboard' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('dashboard')}
               >
-                <Home className="mr-3 h-5 w-5" />
-                Dashboard
-              </a>
+                <Home className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Dashboard</span>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain/inventory"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'inventory' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('inventory')}
               >
-                <Boxes className="mr-3 h-5 w-5" />
-                Inventory
-              </a>
+                <Boxes className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Inventory</span>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain/orders"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'orders' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('orders')}
               >
-                <ShoppingCart className="mr-3 h-5 w-5" />
-                Orders
-              </a>
+                <ShoppingCart className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Orders</span>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain/shipments"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'shipments' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('shipments')}
               >
-                <Send className="mr-3 h-5 w-5" />
-                Shipments
-              </a>
+                <Send className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Shipments</span>
+              </Link>
             </li>
-            <li className="pt-4 border-t border-gray-700 mt-4">
-              <a
+            <li className={`pt-4 border-t border-gray-700 ${isSidebarCollapsed ? 'mt-4' : 'mt-4'}`}>
+              <Link
                 href="/pages/supply-chain/reports"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'reports' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('reports')}
               >
-                <TrendingUp className="mr-3 h-5 w-5" />
-                Reports
-              </a>
+                <TrendingUp className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Reports</span>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain/suppliers"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'suppliers' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('suppliers')}
               >
-                <Factory className="mr-3 h-5 w-5" />
-                Suppliers
-              </a>
+                <Factory className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Suppliers</span>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/pages/supply-chain/customers"
                 className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
                   activeMenuItem === 'customers' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
                 }`}
                 onClick={() => setActiveMenuItem('customers')}
               >
-                <Users className="mr-3 h-5 w-5" />
-                Customers
-              </a>
+                <Users className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+                <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Customers</span>
+              </Link>
             </li>
           </ul>
         </nav>
         <div className="mt-auto">
-          <a
+          <Link
             href="/pages/supply-chain/settings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${
               activeMenuItem === 'settings' ? 'bg-indigo-600 text-white' : 'hover:bg-gray-700 text-gray-300'
             }`}
             onClick={() => setActiveMenuItem('settings')}
           >
-            <Settings className="mr-3 h-5 w-5" />
-            Settings
-          </a>
+            <Settings className={`h-5 w-5 ${isSidebarCollapsed ? '' : 'mr-3'}`} />
+            <span className={isSidebarCollapsed ? 'hidden' : 'block'}>Settings</span>
+          </Link>
         </div>
       </aside>
 
@@ -303,4 +324,4 @@ const supply_chain_dashboard = () => {
   );
 };
 
-export default supply_chain_dashboard;
+export default SupplyChainDashboard;
